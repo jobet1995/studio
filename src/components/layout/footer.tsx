@@ -61,7 +61,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Newsletter</h3>
             <p className="text-sm text-muted-foreground mb-4">Stay up to date with our latest news and adoptions.</p>
-            <form className="flex gap-2">
+            <form className="flex gap-2" data-lpignore="true">
               <Input type="email" placeholder="Enter your email" className="bg-background" />
               <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground">Subscribe</Button>
             </form>
