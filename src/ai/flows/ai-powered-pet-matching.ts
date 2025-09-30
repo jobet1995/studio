@@ -32,9 +32,6 @@ const PetMatchOutputSchema = z.object({
 });
 export type PetMatchOutput = z.infer<typeof PetMatchOutputSchema>;
 
-export async function petMatch(input: PetMatchInput): Promise<PetMatchOutput> {
-  return petMatchFlow(input);
-}
 
 const prompt = ai.definePrompt({
   name: 'petMatchPrompt',
@@ -60,3 +57,7 @@ const petMatchFlow = ai.defineFlow(
     return output!;
   }
 );
+
+export async function petMatch(input: PetMatchInput): Promise<PetMatchOutput> {
+  return petMatchFlow(input);
+}
