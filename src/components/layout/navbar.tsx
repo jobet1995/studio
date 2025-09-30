@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, PawPrint } from 'lucide-react';
+import React from 'react';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -21,12 +22,15 @@ const navLinks = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center">
-        <Logo />
-        <nav className="hidden flex-1 md:flex md:items-center md:justify-center md:gap-6 text-sm">
+        <div className="flex items-center md:flex-1">
+          <Logo />
+        </div>
+        <nav className="hidden md:flex md:items-center md:justify-center md:gap-6 text-sm">
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
@@ -44,7 +48,7 @@ export function Navbar() {
           <Button asChild className="hidden md:flex bg-accent hover:bg-accent/90 text-accent-foreground">
             <Link href="/donate">Donate Now</Link>
           </Button>
-          <Sheet>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-6 w-6" />
@@ -61,6 +65,7 @@ export function Navbar() {
                     <Link
                       key={href}
                       href={href}
+                      onClick={() => setIsOpen(false)}
                       className={cn(
                         'text-lg font-medium transition-colors hover:text-primary',
                         pathname === href ? 'text-primary' : 'text-muted-foreground'
@@ -72,7 +77,7 @@ export function Navbar() {
                 </nav>
                 <div className="mt-auto">
                     <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                        <Link href="/donate">Donate Now</Link>
+                        <Link href="/donate" onClick={() => setIsOpen(false)}>Donate Now</Link>
                     </Button>
                 </div>
               </div>
