@@ -36,7 +36,7 @@ export function Testimonials() {
                             alt={testimonial.name}
                             width={100}
                             height={100}
-                            className="rounded-full mb-4"
+                            className="rounded-full mb-4 object-cover"
                             data-ai-hint={image.imageHint}
                           />
                         )}
