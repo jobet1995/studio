@@ -8,7 +8,7 @@ export function PageHeader({ title, subtitle, className }: PageHeaderProps) {
   return (
     <section className={`py-12 md:py-16 text-center bg-secondary/30 ${className}`}>
       <div className="container">
-        <h1 className="text-3xl font-bold tracking-tight md:text-5xl lg:text-6xl font-headline">
+        <h1 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl font-headline">
           {title}
         </h1>
         {subtitle && (

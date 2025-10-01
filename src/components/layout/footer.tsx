@@ -20,14 +20,14 @@ export function Footer() {
     <footer className="bg-secondary/50 text-secondary-foreground">
       <div className="container py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 md:col-span-2 lg:col-span-1">
             <Logo />
             <p className="text-sm text-muted-foreground">
               Saving lives, one paw at a time. Join us in our mission to find loving homes for animals in need.
             </p>
           </div>
 
-          <div>
+          <div className="md:col-span-1">
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
@@ -40,7 +40,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="md:col-span-1">
             <h3 className="font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
@@ -58,10 +58,10 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="md:col-span-2 lg:col-span-1">
             <h3 className="font-semibold mb-4">Newsletter</h3>
             <p className="text-sm text-muted-foreground mb-4">Stay up to date with our latest news and adoptions.</p>
-            <form className="flex gap-2" data-lpignore="true">
+            <form className="flex flex-col sm:flex-row gap-2" data-lpignore="true">
               <Input type="email" placeholder="Enter your email" className="bg-background" />
               <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground">Subscribe</Button>
             </form>

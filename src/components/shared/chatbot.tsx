@@ -65,7 +65,7 @@ export function Chatbot() {
 
   return (
     <>
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
         <Button size="icon" className="rounded-full w-14 h-14 shadow-lg bg-primary hover:bg-primary/90" onClick={toggleOpen}>
           {isOpen ? <X className="h-6 w-6" /> : <Bot className="h-6 w-6" />}
           <span className="sr-only">Toggle Chat</span>
@@ -79,9 +79,9 @@ export function Chatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 z-50"
+            className="fixed bottom-20 right-4 md:bottom-24 md:right-6 z-50 w-[calc(100vw-2rem)] max-w-sm"
           >
-            <Card className="w-80 md:w-96 shadow-xl">
+            <Card className="shadow-xl">
               <CardHeader className="flex flex-row items-start justify-between">
                 <div>
                   <CardTitle>AnimalKind Assistant</CardTitle>

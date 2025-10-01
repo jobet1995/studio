@@ -26,7 +26,7 @@ export function Hero() {
         <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl">
           Your support gives them a second chance at a happy life.
         </p>
-        <div className="mt-8 flex justify-center gap-4">
+        <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
             <Link href="/animals">Adopt Now</Link>
           </Button>

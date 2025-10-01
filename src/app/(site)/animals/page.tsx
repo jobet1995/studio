@@ -50,8 +50,8 @@ export default function AnimalsPage() {
       />
       <div className="container py-12">
         <div className="mb-8 p-4 rounded-lg bg-secondary/30">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="relative">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="relative lg:col-span-2">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
               <Input
                 placeholder="Search by name..."

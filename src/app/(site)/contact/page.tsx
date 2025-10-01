@@ -88,7 +88,7 @@ export default function ContactPage() {
         
         <div className="mt-16">
           <h2 className="text-2xl font-bold text-center mb-4 font-headline">Find Us Here</h2>
-          <div className="aspect-[16/6] relative w-full overflow-hidden rounded-lg">
+          <div className="aspect-[16/9] md:aspect-[16/6] relative w-full overflow-hidden rounded-lg">
             {mapImage && <Image src={mapImage.imageUrl} alt="Map to shelter" fill className="object-cover" data-ai-hint={mapImage.imageHint}/>}
           </div>
         </div>
