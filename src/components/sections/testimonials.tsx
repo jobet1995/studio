@@ -31,14 +31,16 @@ export function Testimonials() {
                     <Card className="bg-secondary/30 border-0">
                       <CardContent className="flex flex-col items-center justify-center p-6 text-center">
                         {image && (
-                          <Image
-                            src={image.imageUrl}
-                            alt={testimonial.name}
-                            width={100}
-                            height={100}
-                            className="rounded-full mb-4 object-cover"
-                            data-ai-hint={image.imageHint}
-                          />
+                          <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4">
+                            <Image
+                              src={image.imageUrl}
+                              alt={testimonial.name}
+                              fill
+                              className="object-cover"
+                              data-ai-hint={image.imageHint}
+                              sizes="96px"
+                            />
+                          </div>
                         )}
                         <blockquote className="italic text-muted-foreground">
                           "{testimonial.story}"
