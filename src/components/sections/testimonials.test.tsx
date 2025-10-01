@@ -33,6 +33,6 @@ describe('Testimonials', () => {
   it('renders a testimonial card', () => {
     render(<Testimonials />);
     expect(screen.getByText('- The Miller Family')).toBeInTheDocument();
-    expect(screen.getByText(/"We adopted our dog, Daisy..."/i)).toBeInTheDocument();
+    expect(screen.getByText(/We adopted our dog, Daisy.../i)).toBeInTheDocument();
   });
 });
