@@ -8,6 +8,12 @@ jest.mock('@/lib/data', () => ({
   ],
 }));
 
+jest.mock('@/lib/placeholder-images', () => ({
+    PlaceHolderImages: [
+        { id: 'testimonial-1', imageUrl: '/placeholder.jpg', imageHint: 'family' }
+    ]
+}));
+
 describe('Testimonials', () => {
   it('renders the section title', () => {
     render(<Testimonials />);
