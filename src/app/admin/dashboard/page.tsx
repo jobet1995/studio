@@ -24,8 +24,10 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
-import { Dog, FileText, Heart, Users } from 'lucide-react';
+import { Dog, FileText, Heart, Users, ArrowRight } from 'lucide-react';
 import { animals } from '@/lib/data';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const donationData = [
   { name: 'Jan', donations: 4000 },
@@ -42,7 +44,7 @@ export default function AdminDashboardPage() {
     { id: 2, name: 'Jane Smith', animal: 'Lucy', status: 'Approved' },
     { id: 3, name: 'Sam Wilson', animal: 'Rocky', status: 'Pending' },
     { id: 4, name: 'Alice Brown', animal: 'Misty', status: 'Rejected' },
-  ];
+  ].slice(0, 4);
 
   return (
     <div className="space-y-6">
@@ -91,8 +93,11 @@ export default function AdminDashboardPage() {
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-7">
         <Card className="lg:col-span-4">
-          <CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Recent Adoption Applications</CardTitle>
+             <Button asChild variant="outline" size="sm">
+              <Link href="/admin/applications">View All</Link>
+            </Button>
           </CardHeader>
           <CardContent>
             <Table>
@@ -101,18 +106,20 @@ export default function AdminDashboardPage() {
                   <TableHead>Applicant</TableHead>
                   <TableHead>Animal</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead>Actions</TableHead>
+                  <TableHead className="text-right">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {recentApplications.map((app) => (
                   <TableRow key={app.id}>
-                    <TableCell>{app.name}</TableCell>
+                    <TableCell className="font-medium">{app.name}</TableCell>
                     <TableCell>{app.animal}</TableCell>
                     <TableCell>
                       <Badge variant={app.status === 'Approved' ? 'default' : app.status === 'Pending' ? 'secondary' : 'destructive'}>{app.status}</Badge>
                     </TableCell>
-                    <TableCell>View</TableCell>
+                    <TableCell className="text-right">
+                       <Button asChild variant="ghost" size="icon"><Link href="/admin/applications"><ArrowRight /></Link></Button>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

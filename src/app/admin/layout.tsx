@@ -19,9 +19,10 @@ import {
   FileText,
   Calendar,
   Heart,
-  BarChart,
+  Settings,
 } from 'lucide-react';
 import { Logo } from '@/components/shared/logo';
+import { Button } from '@/components/ui/button';
 
 const menuItems = [
   { href: '/admin/dashboard', label: 'Dashboard', icon: Home },
@@ -37,6 +38,9 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const getPageTitle = () => {
+    return menuItems.find(item => pathname.startsWith(item.href))?.label || 'Admin';
+  }
 
   return (
     <SidebarProvider>
@@ -50,7 +54,7 @@ export default function AdminLayout({
               <SidebarMenuItem key={item.href}>
                 <Link href={item.href}>
                   <SidebarMenuButton
-                    isActive={pathname === item.href}
+                    isActive={pathname.startsWith(item.href)}
                     tooltip={item.label}
                   >
                     <item.icon />
@@ -65,7 +69,7 @@ export default function AdminLayout({
       <SidebarInset>
         <header className="sticky top-0 z-40 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6 py-2">
             <SidebarTrigger className="sm:hidden" />
-            <h1 className="text-xl font-semibold">Admin Dashboard</h1>
+            <h1 className="text-xl font-semibold">{getPageTitle()}</h1>
         </header>
         <main className="p-4 sm:px-6 sm:py-0">{children}</main>
       </SidebarInset>
