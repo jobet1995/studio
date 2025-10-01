@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, PawPrint } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import React from 'react';
 
 import { cn } from '@/lib/utils';
