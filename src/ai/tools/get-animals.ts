@@ -11,13 +11,15 @@ const AnimalSchema = z.object({
   shortDescription: z.string(),
 });
 
+const GetAnimalsInputSchema = z.object({
+  species: z.enum(['Dog', 'Cat', 'Other']).optional().describe('The species of animal to filter by.'),
+});
+
 export const getAnimals = ai.defineTool(
   {
     name: 'getAnimals',
     description: 'Get a list of animals available for adoption. Can be filtered by species.',
-    inputSchema: z.object({
-      species: z.enum(['Dog', 'Cat', 'Other']).optional().describe('The species of animal to filter by.'),
-    }),
+    inputSchema: GetAnimalsInputSchema,
     outputSchema: z.array(AnimalSchema),
   },
   async (input) => {
