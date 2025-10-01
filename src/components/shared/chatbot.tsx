@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { chatbot, type ChatbotInput } from '@/ai/flows/chatbot';
+import { chatbot } from '@/ai/flows/chatbot';
+import type { ChatbotInput } from '@/ai/flows/chatbot';
 import { cn } from '@/lib/utils';
 
 type Message = {
@@ -92,7 +93,7 @@ export function Chatbot() {
                 </div>
               </CardHeader>
               <CardContent>
-                <ScrollArea className="h-80 pr-4" ref={scrollAreaRef}>
+                <ScrollArea className="h-72 pr-4" ref={scrollAreaRef}>
                   <div className="space-y-4">
                     {messages.map((message, index) => (
                       <div key={index} className={cn("flex items-end gap-2", message.role === 'user' ? "justify-end" : "justify-start")}>
