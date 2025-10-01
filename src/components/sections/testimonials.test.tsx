@@ -3,7 +3,6 @@ import { Testimonials } from './testimonials';
 
 // Mock data
 jest.mock('@/lib/data', () => ({
-  ...jest.requireActual('@/lib/data'),
   testimonials: [
     { id: '1', name: 'The Miller Family', story: "We adopted our dog, Daisy...", image: 'testimonial-1' },
   ],
@@ -14,6 +13,16 @@ jest.mock('@/lib/placeholder-images', () => ({
         { id: 'testimonial-1', imageUrl: '/placeholder.jpg', imageHint: 'family', description: 'A family' }
     ]
 }));
+
+// Mock the carousel component
+jest.mock('@/components/ui/carousel', () => ({
+  Carousel: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  CarouselContent: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  CarouselItem: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  CarouselNext: () => <button>Next</button>,
+  CarouselPrevious: () => <button>Previous</button>,
+}));
+
 
 describe('Testimonials', () => {
   it('renders the section title', () => {

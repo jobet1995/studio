@@ -9,6 +9,16 @@ jest.mock('@/lib/data', () => ({
   ],
 }));
 
+// Mock the carousel component
+jest.mock('@/components/ui/carousel', () => ({
+  Carousel: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  CarouselContent: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  CarouselItem: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  CarouselNext: () => <button>Next</button>,
+  CarouselPrevious: () => <button>Previous</button>,
+}));
+
+
 describe('FeaturedAnimals', () => {
   it('renders the section title and a link to all animals', () => {
     render(<FeaturedAnimals />);
