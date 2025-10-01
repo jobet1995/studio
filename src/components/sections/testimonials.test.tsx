@@ -3,6 +3,7 @@ import { Testimonials } from './testimonials';
 
 // Mock data
 jest.mock('@/lib/data', () => ({
+  ...jest.requireActual('@/lib/data'),
   testimonials: [
     { id: '1', name: 'The Miller Family', story: "We adopted our dog, Daisy...", image: 'testimonial-1' },
   ],
@@ -10,7 +11,7 @@ jest.mock('@/lib/data', () => ({
 
 jest.mock('@/lib/placeholder-images', () => ({
     PlaceHolderImages: [
-        { id: 'testimonial-1', imageUrl: '/placeholder.jpg', imageHint: 'family' }
+        { id: 'testimonial-1', imageUrl: '/placeholder.jpg', imageHint: 'family', description: 'A family' }
     ]
 }));
 
