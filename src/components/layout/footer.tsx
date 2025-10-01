@@ -1,9 +1,13 @@
+
+'use client';
+
 import Link from 'next/link';
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 import { Logo } from '../shared/logo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
+import { useEffect, useState } from 'react';
 
 const quickLinks = [
   { href: '/', label: 'Home' },
@@ -14,6 +18,25 @@ const quickLinks = [
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];
+
+function NewsletterForm() {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    if (!isClient) {
+        return null;
+    }
+
+    return (
+        <form className="flex flex-col sm:flex-row gap-2" data-lpignore="true">
+            <Input type="email" placeholder="Enter your email" className="bg-background" data-lpignore="true" />
+            <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground">Subscribe</Button>
+        </form>
+    );
+}
 
 export function Footer() {
   return (
@@ -61,10 +84,7 @@ export function Footer() {
           <div className="md:col-span-2 lg:col-span-1">
             <h3 className="font-semibold mb-4">Newsletter</h3>
             <p className="text-sm text-muted-foreground mb-4">Stay up to date with our latest news and adoptions.</p>
-            <form className="flex flex-col sm:flex-row gap-2" data-lpignore="true">
-              <Input type="email" placeholder="Enter your email" className="bg-background" data-lpignore="true" />
-              <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground">Subscribe</Button>
-            </form>
+            <NewsletterForm />
           </div>
         </div>
 
