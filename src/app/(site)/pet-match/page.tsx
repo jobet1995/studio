@@ -68,71 +68,73 @@ export default function PetMatchPage() {
       <div className="container py-12">
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           <Card>
-            <form action={formAction}>
-              <CardHeader>
-                <CardTitle>Find Your Match</CardTitle>
-                <CardDescription>The more detail you provide, the better the match!</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="lifestyle"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Your Lifestyle</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          {...field}
-                          rows={4}
-                          placeholder="e.g., I live in an apartment and work from home. I enjoy long walks on weekends but am less active during the week. I live alone."
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="preferences"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Pet Preferences</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          {...field}
-                          rows={4}
-                          placeholder="e.g., Looking for a medium-sized dog, under 3 years old. I'd prefer a playful but not overly hyper personality. A cuddly cat would also be great."
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                 <FormField
-                  control={form.control}
-                  name="existingPets"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Existing Pets (if any)</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          {...field}
-                          rows={2}
-                          placeholder="e.g., I have a 5-year-old, calm male cat."
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </CardContent>
-              <CardFooter>
-                <Button type="submit" disabled={formState.isSubmitting} className="w-full">
-                  <Sparkles className="mr-2 h-4 w-4" />
-                  {formState.isSubmitting ? 'Finding Matches...' : 'Get Recommendations'}
-                </Button>
-              </CardFooter>
-            </form>
+            <Form {...form}>
+              <form action={formAction}>
+                <CardHeader>
+                  <CardTitle>Find Your Match</CardTitle>
+                  <CardDescription>The more detail you provide, the better the match!</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <FormField
+                    control={form.control}
+                    name="lifestyle"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Your Lifestyle</FormLabel>
+                        <FormControl>
+                          <Textarea
+                            {...field}
+                            rows={4}
+                            placeholder="e.g., I live in an apartment and work from home. I enjoy long walks on weekends but am less active during the week. I live alone."
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="preferences"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Pet Preferences</FormLabel>
+                        <FormControl>
+                          <Textarea
+                            {...field}
+                            rows={4}
+                            placeholder="e.g., Looking for a medium-sized dog, under 3 years old. I'd prefer a playful but not overly hyper personality. A cuddly cat would also be great."
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="existingPets"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Existing Pets (if any)</FormLabel>
+                        <FormControl>
+                          <Textarea
+                            {...field}
+                            rows={2}
+                            placeholder="e.g., I have a 5-year-old, calm male cat."
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </CardContent>
+                <CardFooter>
+                  <Button type="submit" disabled={formState.isSubmitting} className="w-full">
+                    <Sparkles className="mr-2 h-4 w-4" />
+                    {formState.isSubmitting ? 'Finding Matches...' : 'Get Recommendations'}
+                  </Button>
+                </CardFooter>
+              </form>
+            </Form>
           </Card>
           <div>
             <Card className="min-h-[400px]">
