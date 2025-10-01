@@ -1,6 +1,6 @@
 'use client';
 
-import { useFormState } from 'react-dom';
+import { useActionState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -51,7 +51,7 @@ async function petMatchAction(_prevState: PetMatchState, formData: FormData): Pr
 }
 
 export default function PetMatchPage() {
-  const [state, formAction] = useFormState(petMatchAction, initialFormState);
+  const [state, formAction] = useActionState(petMatchAction, initialFormState);
 
   const form = useForm<PetMatchForm>({
     resolver: zodResolver(petMatchSchema),
