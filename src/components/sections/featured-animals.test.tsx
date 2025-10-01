@@ -9,11 +9,18 @@ jest.mock('@/lib/data', () => ({
   ],
 }));
 
-// Mock the carousel component
+jest.mock('@/lib/placeholder-images', () => ({
+    PlaceHolderImages: [
+        { id: 'animal-1', imageUrl: '/placeholder.jpg', imageHint: 'dog' },
+        { id: 'animal-2', imageUrl: '/placeholder.jpg', imageHint: 'cat' }
+    ]
+}));
+
+// Mock the carousel component as it has issues in JSDOM
 jest.mock('@/components/ui/carousel', () => ({
-  Carousel: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
-  CarouselContent: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
-  CarouselItem: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  Carousel: ({ children }: { children: React.ReactNode }) => <div data-testid="carousel">{children}</div>,
+  CarouselContent: ({ children }: { children: React.ReactNode }) => <div data-testid="carousel-content">{children}</div>,
+  CarouselItem: ({ children }: { children: React.ReactNode }) => <div data-testid="carousel-item">{children}</div>,
   CarouselNext: () => <button>Next</button>,
   CarouselPrevious: () => <button>Previous</button>,
 }));
