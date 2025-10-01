@@ -9,10 +9,10 @@
  */
 
 import { ai } from '@/ai/genkit';
-import { z } from 'zod';
+import { z } from 'genkit';
 import { getAnimals } from '@/ai/tools/get-animals';
 
-const ChatbotInputSchema = z.object({
+const ChatbotInputSchema: z.ZodTypeAny = z.object({
   history: z.array(
     z.object({
       role: z.enum(['user', 'model']),
@@ -22,7 +22,7 @@ const ChatbotInputSchema = z.object({
 });
 export type ChatbotInput = z.infer<typeof ChatbotInputSchema>;
 
-const ChatbotOutputSchema = z.object({
+const ChatbotOutputSchema: z.ZodTypeAny = z.object({
   content: z.string(),
 });
 export type ChatbotOutput = z.infer<typeof ChatbotOutputSchema>;
