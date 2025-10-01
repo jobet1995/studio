@@ -4,6 +4,13 @@ import { ai } from '@/ai/genkit';
 import { animals } from '@/lib/data';
 import { z } from 'zod';
 
+const AnimalSchema = z.object({
+  name: z.string(),
+  breed: z.string(),
+  age: z.string(),
+  shortDescription: z.string(),
+});
+
 export const getAnimals = ai.defineTool(
   {
     name: 'getAnimals',
@@ -11,14 +18,7 @@ export const getAnimals = ai.defineTool(
     inputSchema: z.object({
       species: z.enum(['Dog', 'Cat', 'Other']).optional().describe('The species of animal to filter by.'),
     }),
-    outputSchema: z.array(
-      z.object({
-        name: z.string(),
-        breed: z.string(),
-        age: z.string(),
-        shortDescription: z.string(),
-      })
-    ),
+    outputSchema: z.array(AnimalSchema),
   },
   async (input) => {
     let availableAnimals = animals.filter((a) => a.adoptionStatus === 'Available');
