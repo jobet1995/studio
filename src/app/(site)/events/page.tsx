@@ -6,6 +6,7 @@ import type { Event } from '@/lib/types';
 import { EventCard } from '@/components/shared/event-card';
 import { PageHeader } from '@/components/shared/page-header';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { motion } from 'framer-motion';
 
 const eventTypes = ['All', 'Adoption Drive', 'Fundraiser', 'Volunteer Day'];
 
@@ -15,6 +16,21 @@ export default function EventsPage() {
   const filteredEvents = allEvents.filter(
     (event: Event) => filter === 'All' || event.type === filter
   );
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+  };
 
   return (
     <>
@@ -36,11 +52,18 @@ export default function EventsPage() {
         </div>
 
         {filteredEvents.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
             {filteredEvents.map((event) => (
-              <EventCard key={event.id} event={event} />
+              <motion.div key={event.id} variants={itemVariants}>
+                <EventCard event={event} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         ) : (
           <div className="text-center py-16">
             <h3 className="text-2xl font-semibold">No Events Found</h3>

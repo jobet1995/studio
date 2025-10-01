@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Search } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const speciesOptions = ['All', 'Dog', 'Cat', 'Other'];
 const ageOptions = ['All', 'Puppy/Kitten (0-1yr)', 'Young (1-3yrs)', 'Adult (3-7yrs)', 'Senior (7+ yrs)'];
@@ -41,6 +42,21 @@ export default function AnimalsPage() {
       (ageFilter === 'All' || getAgeCategory(animal.age) === ageFilter)
     );
   });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+  };
 
   return (
     <>
@@ -94,11 +110,18 @@ export default function AnimalsPage() {
         </div>
 
         {filteredAnimals.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
             {filteredAnimals.map((animal) => (
-              <AnimalCard key={animal.id} animal={animal} />
+              <motion.div key={animal.id} variants={itemVariants}>
+                <AnimalCard animal={animal} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         ) : (
           <div className="text-center py-16">
             <h3 className="text-2xl font-semibold">No Animals Found</h3>

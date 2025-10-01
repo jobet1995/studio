@@ -6,6 +6,7 @@ import type { BlogPost } from '@/lib/types';
 import { BlogPostCard } from '@/components/shared/blog-post-card';
 import { PageHeader } from '@/components/shared/page-header';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { motion } from 'framer-motion';
 
 const categories = ['All', 'Training', 'Adoption', 'Community'];
 
@@ -15,6 +16,21 @@ export default function BlogPage() {
   const filteredPosts = allPosts.filter(
     (post: BlogPost) => filter === 'All' || post.category === filter
   );
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+  };
 
   return (
     <>
@@ -36,11 +52,18 @@ export default function BlogPage() {
         </div>
 
         {filteredPosts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
             {filteredPosts.map((post) => (
-              <BlogPostCard key={post.id} post={post} />
+              <motion.div key={post.id} variants={itemVariants}>
+                <BlogPostCard post={post} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         ) : (
           <div className="text-center py-16">
             <h3 className="text-2xl font-semibold">No Posts Found</h3>
