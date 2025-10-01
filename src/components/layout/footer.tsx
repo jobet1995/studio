@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { FacebookIcon, InstagramIcon, TwitterIcon, Mail, Phone, MapPin } from 'lucide-react';
 import { Logo } from '../shared/logo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -93,9 +93,9 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} AnimalKind. All Rights Reserved.</p>
           <div className="flex items-center gap-4 mt-4 md:mt-0">
-            <Link href="#" aria-label="Facebook" className="hover:text-primary transition-colors"><Facebook size={20} /></Link>
-            <Link href="#" aria-label="Instagram" className="hover:text-primary transition-colors"><Instagram size={20} /></Link>
-            <Link href="#" aria-label="Twitter" className="hover:text-primary transition-colors"><Twitter size={20} /></Link>
+            <Link href="#" aria-label="Facebook" className="hover:text-primary transition-colors"><FacebookIcon size={20} /></Link>
+            <Link href="#" aria-label="Instagram" className="hover:text-primary transition-colors"><InstagramIcon size={20} /></Link>
+            <Link href="#" aria-label="Twitter" className="hover:text-primary transition-colors"><TwitterIcon size={20} /></Link>
           </div>
         </div>
       </div>

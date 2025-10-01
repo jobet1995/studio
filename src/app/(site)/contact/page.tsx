@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Mail, MapPin, Phone, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Mail, MapPin, Phone, FacebookIcon, InstagramIcon, TwitterIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -79,9 +79,9 @@ export default function ContactPage() {
               </li>
             </ul>
              <div className="flex items-center gap-4">
-                <Button asChild variant="outline" size="icon"><Link href="#"><Facebook/></Link></Button>
-                <Button asChild variant="outline" size="icon"><Link href="#"><Instagram/></Link></Button>
-                <Button asChild variant="outline" size="icon"><Link href="#"><Twitter/></Link></Button>
+                <Button asChild variant="outline" size="icon"><Link href="#"><FacebookIcon/></Link></Button>
+                <Button asChild variant="outline" size="icon"><Link href="#"><InstagramIcon/></Link></Button>
+                <Button asChild variant="outline" size="icon"><Link href="#"><TwitterIcon/></Link></Button>
             </div>
           </div>
         </div>
