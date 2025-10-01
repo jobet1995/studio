@@ -48,8 +48,8 @@ export function AnimalCard({ animal }: AnimalCardProps) {
             <p className="mt-2 text-sm line-clamp-2">{animal.shortDescription}</p>
           </CardContent>
           <CardFooter className="p-4 pt-0 mt-auto">
-            <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link href={`/animals/${animal.id}`}>Adopt Me</Link>
+            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" as="div">
+              Adopt Me
             </Button>
           </CardFooter>
         </Link>
