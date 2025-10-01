@@ -7,7 +7,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { motion } from 'framer-motion';
 
 export function Hero() {
-  const heroImage = PlaceHolderImages.find(p => p.id === 'hero-1');
+  const heroImage = PlaceHolderImages.find(p => p.id === 'hero-2');
 
   return (
     <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center text-white">

@@ -1,10 +1,10 @@
 {
   "placeholderImages": [
     {
-      "id": "hero-1",
-      "description": "A happy dog running in a field.",
-      "imageUrl": "https://images.unsplash.com/photo-1719910449459-d16ca630782f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2clMjBmaWVsZHxlbnwwfHx8fDE3NTkyNzYyODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "dog field"
+      "id": "hero-2",
+      "description": "A happy dog with its owner.",
+      "imageUrl": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2d8ZW58MHx8fHwxNzU5Mjc2Mjg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy dog"
     },
     {
       "id": "animal-1",
