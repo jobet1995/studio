@@ -19,13 +19,13 @@ export const getAnimals = ai.defineTool(
   {
     name: 'getAnimals',
     description: 'Get a list of animals available for adoption. Can be filtered by species.',
-    inputSchema: GetAnimalsInputSchema,
-    outputSchema: z.array(AnimalSchema),
+    inputSchema: GetAnimalsInputSchema as any,
+    outputSchema: z.array(AnimalSchema) as any,
   },
   async (input) => {
     let availableAnimals = animals.filter((a) => a.adoptionStatus === 'Available');
 
-    if (input.species) {
+    if (input?.species) {
       availableAnimals = availableAnimals.filter((a) => a.species === input.species);
     }
 
