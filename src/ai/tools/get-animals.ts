@@ -2,7 +2,7 @@
 
 import { ai } from '@/ai/genkit';
 import { animals } from '@/lib/data';
-import { z, type ZodTypeAny } from 'genkit';
+import { z } from 'genkit';
 
 const AnimalSchema = z.object({
   name: z.string(),
@@ -11,11 +11,11 @@ const AnimalSchema = z.object({
   shortDescription: z.string(),
 });
 
-const GetAnimalsInputSchema: ZodTypeAny = z.object({
+const GetAnimalsInputSchema: z.ZodTypeAny = z.object({
   species: z.enum(['Dog', 'Cat', 'Other']).optional().describe('The species of animal to filter by.'),
 });
 
-const GetAnimalsOutputSchema: ZodTypeAny = z.array(AnimalSchema);
+const GetAnimalsOutputSchema: z.ZodTypeAny = z.array(AnimalSchema);
 
 export const getAnimals = ai.defineTool(
   {
